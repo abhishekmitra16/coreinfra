@@ -8,13 +8,13 @@ module "vpc" {
 
 
 module "vpce" {
-  source                   = "./modules/vpce"
-  project_name             = var.project_name
-  vpc_id                   = module.vpc.vpc_id
-  vpc_cidr                 = module.vpc.vpc_cidr_block
-  region                   = var.region
-  private_subnet_ids       = module.vpc.private_subnet_ids
-  private_route_table_ids  = module.vpc.private_route_table_ids
+  source                  = "./modules/vpce"
+  project_name            = var.project_name
+  vpc_id                  = module.vpc.vpc_id
+  vpc_cidr                = module.vpc.vpc_cidr_block
+  region                  = var.region
+  private_subnet_ids      = module.vpc.private_subnet_ids
+  private_route_table_ids = module.vpc.private_route_table_ids
 }
 
 module "alb" {
@@ -27,8 +27,8 @@ module "alb" {
   alb_name                 = var.alb_name
   alb_exists               = var.alb_exists
   use_existing_certificate = var.use_existing_certificate
-#   route53_zone_id          = module.route53.route53_zone_id
-  public_subnet_ids        = module.vpc.public_subnet_ids
+  #   route53_zone_id          = module.route53.route53_zone_id
+  public_subnet_ids = module.vpc.public_subnet_ids
 }
 
 
@@ -39,9 +39,9 @@ module "cloudfront" {
   s3_regional_domain_name = module.s3.s3_regional_domain_name
   backend_alb_dns_name    = module.alb.alb_dns_name
   cloudfront_oac_id       = module.s3.cloudfront_oac_id
-  # acm_certificate_arn     = module.alb.acm_certificate_arn
-  domain_name             = var.domain_name
-  sub_domain_name         = var.sub_domain_name
+  acm_certificate_arn     = module.alb.acm_certificate_arn
+  domain_name     = var.domain_name
+  sub_domain_name = var.sub_domain_name
 }
 
 

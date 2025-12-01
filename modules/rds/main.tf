@@ -35,8 +35,8 @@ resource "aws_db_instance" "main" {
   deletion_protection     = false
 
   tags = {
-    Name        = var.db_instance_identifier
-    Project     = var.project_name
+    Name    = var.db_instance_identifier
+    Project = var.project_name
   }
 
   lifecycle {

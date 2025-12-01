@@ -7,7 +7,7 @@ resource "aws_route53_zone" "private" {
   }
 
   tags = {
-    Name        = "${var.project_name}-private-zone"
+    Name    = "${var.project_name}-private-zone"
     Project = var.project_name
   }
 }

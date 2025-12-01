@@ -21,7 +21,7 @@ resource "aws_security_group" "vpc_endpoints" {
   }
 
   tags = {
-    Name        = "${var.project_name}-vpc-endpoints-sg"
+    Name = "${var.project_name}-vpc-endpoints-sg"
   }
 }
 
@@ -37,11 +37,11 @@ resource "aws_vpc_endpoint" "s3" {
 }
 
 resource "aws_vpc_endpoint" "ecr_api" {
-  vpc_id            = var.vpc_id
-  service_name      = "com.amazonaws.${var.region}.ecr.api"
-  vpc_endpoint_type = "Interface"
-  subnet_ids        = var.private_subnet_ids
-  security_group_ids = [aws_security_group.vpc_endpoints.id]
+  vpc_id              = var.vpc_id
+  service_name        = "com.amazonaws.${var.region}.ecr.api"
+  vpc_endpoint_type   = "Interface"
+  subnet_ids          = var.private_subnet_ids
+  security_group_ids  = [aws_security_group.vpc_endpoints.id]
   private_dns_enabled = true
 
   tags = {
@@ -50,11 +50,11 @@ resource "aws_vpc_endpoint" "ecr_api" {
 }
 
 resource "aws_vpc_endpoint" "ecr_dkr" {
-  vpc_id            = var.vpc_id
-  service_name      = "com.amazonaws.${var.region}.ecr.dkr"
-  vpc_endpoint_type = "Interface"
-  subnet_ids        = var.private_subnet_ids
-  security_group_ids = [aws_security_group.vpc_endpoints.id]
+  vpc_id              = var.vpc_id
+  service_name        = "com.amazonaws.${var.region}.ecr.dkr"
+  vpc_endpoint_type   = "Interface"
+  subnet_ids          = var.private_subnet_ids
+  security_group_ids  = [aws_security_group.vpc_endpoints.id]
   private_dns_enabled = true
 
   tags = {
@@ -64,11 +64,11 @@ resource "aws_vpc_endpoint" "ecr_dkr" {
 
 
 resource "aws_vpc_endpoint" "cloudwatch_logs" {
-  vpc_id            = var.vpc_id
-  service_name      = "com.amazonaws.${var.region}.logs"
-  vpc_endpoint_type = "Interface"
-  subnet_ids        = var.private_subnet_ids
-  security_group_ids = [aws_security_group.vpc_endpoints.id]
+  vpc_id              = var.vpc_id
+  service_name        = "com.amazonaws.${var.region}.logs"
+  vpc_endpoint_type   = "Interface"
+  subnet_ids          = var.private_subnet_ids
+  security_group_ids  = [aws_security_group.vpc_endpoints.id]
   private_dns_enabled = true
   tags = {
     Name = "${var.project_name}-cloudwatch-logs-vpce"
@@ -76,11 +76,11 @@ resource "aws_vpc_endpoint" "cloudwatch_logs" {
 }
 
 resource "aws_vpc_endpoint" "secrets_manager" {
-  vpc_id            = var.vpc_id
-  service_name      = "com.amazonaws.${var.region}.secretsmanager"
-  vpc_endpoint_type = "Interface"
-  subnet_ids        = var.private_subnet_ids
-  security_group_ids = [aws_security_group.vpc_endpoints.id]
+  vpc_id              = var.vpc_id
+  service_name        = "com.amazonaws.${var.region}.secretsmanager"
+  vpc_endpoint_type   = "Interface"
+  subnet_ids          = var.private_subnet_ids
+  security_group_ids  = [aws_security_group.vpc_endpoints.id]
   private_dns_enabled = true
   tags = {
     Name = "${var.project_name}-secrets-manager-vpce"
@@ -89,11 +89,11 @@ resource "aws_vpc_endpoint" "secrets_manager" {
 
 
 resource "aws_vpc_endpoint" "ecs_telemetry" {
-  vpc_id            = var.vpc_id
-  service_name      = "com.amazonaws.${var.region}.ecs-telemetry"
-  vpc_endpoint_type = "Interface"
-  subnet_ids        = var.private_subnet_ids
-  security_group_ids = [aws_security_group.vpc_endpoints.id]
+  vpc_id              = var.vpc_id
+  service_name        = "com.amazonaws.${var.region}.ecs-telemetry"
+  vpc_endpoint_type   = "Interface"
+  subnet_ids          = var.private_subnet_ids
+  security_group_ids  = [aws_security_group.vpc_endpoints.id]
   private_dns_enabled = true
   tags = {
     Name = "${var.project_name}-ecs-telemetry-vpce"

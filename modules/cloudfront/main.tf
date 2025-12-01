@@ -17,17 +17,6 @@ resource "aws_cloudfront_distribution" "main" {
 
   aliases = ["${var.sub_domain_name}.${var.domain_name}"]
 
-  #   origin {
-  #     domain_name = var.domain_name
-  #     origin_id   = "origin-${var.domain_name}"
-
-  #     custom_origin_config {
-  #       http_port              = 80
-  #       https_port             = 443
-  #       origin_protocol_policy = "https-only"
-  #       origin_ssl_protocols   = ["TLSv1.2"]
-  #     }
-  #   }
 
   origin {
     domain_name              = var.s3_regional_domain_name

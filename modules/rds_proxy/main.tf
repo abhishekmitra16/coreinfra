@@ -52,7 +52,7 @@ resource "aws_db_proxy" "main" {
   }
 
   tags = {
-    Name        = "${var.project_name}-rds-proxy"
+    Name = "${var.project_name}-rds-proxy"
   }
 }
 
@@ -60,14 +60,14 @@ resource "aws_db_proxy_default_target_group" "main" {
   db_proxy_name = aws_db_proxy.main.name
 
   connection_pool_config {
-    connection_borrow_timeout = 120
-    max_connections_percent   = 100
+    connection_borrow_timeout    = 120
+    max_connections_percent      = 100
     max_idle_connections_percent = 50
   }
 }
 
 resource "aws_db_proxy_target" "main" {
-  db_proxy_name         = aws_db_proxy.main.name
-  target_group_name     = aws_db_proxy_default_target_group.main.name
+  db_proxy_name          = aws_db_proxy.main.name
+  target_group_name      = aws_db_proxy_default_target_group.main.name
   db_instance_identifier = var.aws_db_instance_identifier
 }

@@ -1,1 +1,0 @@
-bucket_name = "terraform-state-bucket-abhishek"

@@ -22,7 +22,7 @@ output "ecs_security_group_arn" {
 
 output "public_subnet_ids" {
   description = "List of public subnet IDs"
-  value       = [
+  value = [
     aws_subnet.public_subnet_1.id,
     aws_subnet.public_subnet_2.id,
     aws_subnet.public_subnet_3.id,
@@ -32,7 +32,7 @@ output "public_subnet_ids" {
 
 output "private_subnet_ids" {
   description = "List of private subnet IDs"
-  value       = [
+  value = [
     aws_subnet.private_subnet_1.id,
     aws_subnet.private_subnet_2.id,
     aws_subnet.private_subnet_3.id
@@ -46,7 +46,7 @@ output "private_hosted_zone_name" {
 
 output "private_route_table_ids" {
   description = "List of private route table IDs"
-  value       = [
+  value = [
     aws_route_table.private.id
   ]
 }

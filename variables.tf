@@ -147,7 +147,7 @@ variable "desired_count" {
 variable "db_instance_identifier" {
   description = "The identifier for the RDS DB instance."
   type        = string
-  
+
 }
 
 variable "database_name" {
