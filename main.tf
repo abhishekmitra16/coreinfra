@@ -40,8 +40,8 @@ module "cloudfront" {
   backend_alb_dns_name    = module.alb.alb_dns_name
   cloudfront_oac_id       = module.s3.cloudfront_oac_id
   acm_certificate_arn     = module.alb.acm_certificate_arn
-  domain_name     = var.domain_name
-  sub_domain_name = var.sub_domain_name
+  domain_name             = var.domain_name
+  sub_domain_name         = var.sub_domain_name
 }
 
 
