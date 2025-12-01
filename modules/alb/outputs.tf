@@ -35,7 +35,7 @@ output "listener_arn" {
   value       = var.alb_exists ? data.aws_lb_listener.alb_listener[0].arn : aws_lb_listener.main_listener[0].arn
 }
 
-# output "acm_certificate_arn" {
-#   description = "ARN of the ACM certificate for the domain"
-#   value       = var.use_existing_certificate ? data.aws_acm_certificate.existing[0].arn : aws_acm_certificate.main[0].arn
-# }
+output "acm_certificate_arn" {
+  description = "ARN of the ACM certificate for the domain"
+  value       = var.use_existing_certificate ? data.aws_acm_certificate.existing[0].arn : aws_acm_certificate.main[0].arn
+}

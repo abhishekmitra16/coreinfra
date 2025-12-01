@@ -27,7 +27,7 @@ module "alb" {
   alb_name                 = var.alb_name
   alb_exists               = var.alb_exists
   use_existing_certificate = var.use_existing_certificate
-  #   route53_zone_id          = module.route53.route53_zone_id
+  route53_zone_id          = module.route53.route53_zone_id
   public_subnet_ids = module.vpc.public_subnet_ids
 }
 
@@ -109,13 +109,13 @@ module "rds_sg" {
 
 }
 
-# module "route53" {
-#   source                 = "./modules/route53"
-#   domain_name            = var.domain_name
-#   sub_domain_name        = var.sub_domain_name
-#   cloudfront_domain_name = module.cloudfront.cloudfront_domain_name
-#   cloudfront_zone_id     = module.cloudfront.cloudfront_zone_id
-# }
+module "route53" {
+  source                 = "./modules/route53"
+  domain_name            = var.domain_name
+  sub_domain_name        = var.sub_domain_name
+  cloudfront_domain_name = module.cloudfront.cloudfront_domain_name
+  cloudfront_zone_id     = module.cloudfront.cloudfront_zone_id
+}
 
 module "route53_private" {
   source                   = "./modules/route53_private"
